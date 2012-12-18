@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
 try:
     from sphinx.setup_command import BuildDoc
     cmdclass = {'build_sphinx': BuildDoc}
@@ -50,7 +50,7 @@ setup(
         'Topic :: Software Development :: Libraries',
         ],
     entry_points="""[console_scripts]\nwebassets = webassets.script:run\n""",
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=['webassets'],
+    package_dir={'webassets': os.path.join('src', 'webassets')},
     cmdclass=cmdclass,
 )
